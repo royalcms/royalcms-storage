@@ -25,12 +25,12 @@ class StorageServiceProvider extends ServiceProvider
 
 		$this->registerManager();
 
-		$this->royalcms->bindShared('storage.disk', function($royalcms)
+		$this->royalcms->singleton('storage.disk', function($royalcms)
 		{
 			return $royalcms['storage']->disk($this->getDefaultDriver());
 		});
 
-		$this->royalcms->bindShared('storage.cloud', function($royalcms)
+		$this->royalcms->singleton('storage.cloud', function($royalcms)
 		{
 			return $royalcms['storage']->disk($this->getCloudDriver());
 		});
@@ -43,7 +43,7 @@ class StorageServiceProvider extends ServiceProvider
 	 */
 	protected function registerManager()
 	{
-		$this->royalcms->bindShared('storage', function($royalcms)
+		$this->royalcms->singleton('storage', function($royalcms)
 		{
 			return new FilesystemManager($royalcms);
 		});
@@ -56,7 +56,7 @@ class StorageServiceProvider extends ServiceProvider
 	 */
 	protected function getDefaultDriver()
 	{
-		return $this->royalcms['config']['filesystems.default'];
+		return $this->royalcms['config']['storage.default'];
 	}
 
 	/**
@@ -66,7 +66,7 @@ class StorageServiceProvider extends ServiceProvider
 	 */
 	protected function getCloudDriver()
 	{
-		return $this->royalcms['config']['filesystems.cloud'];
+		return $this->royalcms['config']['storage.cloud'];
 	}
 
     /**

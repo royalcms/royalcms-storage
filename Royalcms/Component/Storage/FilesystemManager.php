@@ -93,7 +93,7 @@ class FilesystemManager extends BaseFilesystemManager
      */
     protected function getConfig($name)
     {
-        return $this->royalcms['config']["storage.disks.{$name}"];
+        return $this->app['config']["storage.disks.{$name}"];
     }
 
     /**
@@ -103,6 +103,6 @@ class FilesystemManager extends BaseFilesystemManager
      */
     public function getDefaultDriver()
     {
-        return $this->royalcms['config']['storage.default'];
+        return $this->app['config']['storage.default'];
     }
 }
