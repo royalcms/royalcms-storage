@@ -25,6 +25,14 @@
     "extra": {
         "branch-alias": {
             "dev-master": "5.0-dev"
+        },
+        "royalcms": {
+            "providers": [
+                "Royalcms\\Component\\Storage\\StorageServiceProvider"
+            ],
+            "aliases": {
+                "RC_Storage": "Royalcms\\Component\\Storage\\Facades\\Storage"
+            }
         }
     },
     "minimum-stability": "dev"
