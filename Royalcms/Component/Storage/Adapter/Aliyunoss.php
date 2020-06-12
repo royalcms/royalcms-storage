@@ -128,6 +128,9 @@ class Aliyunoss extends AbstractAdapter implements StorageInterface
         } catch (OSSException $e) {
             $this->errors->add($e->getCode(), $e->getMessage());
             return false;
+        } catch (\Royalcms\Component\Aliyun\Common\Exceptions\ClientException $e) {
+            $this->errors->add($e->getCode(), $e->getMessage());
+            return false;
         }
     }
 
