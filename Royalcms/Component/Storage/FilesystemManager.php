@@ -49,19 +49,6 @@ class FilesystemManager extends BaseFilesystemManager
         ), $config));
     }
 
-	/**
-	 * Create an instance of the Aliyun oss driver.
-	 *
-	 * @param  array  $config
-	 * @return \Royalcms\Component\Contracts\Filesystem\Filesystem
-	 */
-	public function createAliyunossDriver(array $config)
-	{
-		$ossConfig = array_only($config, array('key', 'secret', 'bucket', 'server', 'server_internal', 'is_internal', 'url'));
-
-		return $this->adapt($this->createFilesystem(new Aliyunoss($ossConfig), $ossConfig));
-	}
-
     /**
      * Create a Storage instance with the given adapter.
      *
@@ -69,7 +56,7 @@ class FilesystemManager extends BaseFilesystemManager
      * @param  array  $config
      * @return \Royalcms\Component\Storage\Filesystem
      */
-    protected function createFilesystem(AbstractAdapter $adapter, array $config)
+    public function createFilesystem(AbstractAdapter $adapter, array $config)
     {
         return new Filesystem($adapter, count($config) > 0 ? $config : null);
     }
@@ -80,7 +67,7 @@ class FilesystemManager extends BaseFilesystemManager
 	 * @param  \League\Flysystem\FilesystemInterface  $filesystem
 	 * @return \Royalcms\Component\Contracts\Filesystem\Filesystem
 	 */
-	protected function adapt(FilesystemInterface $filesystem)
+    public function adapt(FilesystemInterface $filesystem)
 	{
 		return new FilesystemAdapter($filesystem);
 	}

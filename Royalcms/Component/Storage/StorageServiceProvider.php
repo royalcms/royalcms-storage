@@ -2,17 +2,11 @@
 
 namespace Royalcms\Component\Storage;
 
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Royalcms\Component\Support\ServiceProvider;
 
-class StorageServiceProvider extends ServiceProvider
+class StorageServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
 
 	/**
 	 * Register the service provider.
