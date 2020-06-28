@@ -84,7 +84,6 @@ class StorageServiceProvider extends ServiceProvider implements DeferrableProvid
 
         return [
             $dir . "/Contracts/StorageInterface.php",
-            $dir . "/Adapter/Aliyunoss.php",
             $dir . "/Adapter/Direct.php",
             $dir . "/Adapter/Local.php",
             $dir . "/Filesystem.php",
