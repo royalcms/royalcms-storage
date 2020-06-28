@@ -948,6 +948,7 @@ class Aliyunoss extends AbstractAdapter implements StorageInterface
      */
     public function is_writable($file)
     {
+        /*
         $objectacl = $this->getBucketAcl();
 
         if ($objectacl) {
@@ -959,6 +960,9 @@ class Aliyunoss extends AbstractAdapter implements StorageInterface
         }
 
         return false;
+        */
+
+        return true;
     }
 
     /**
